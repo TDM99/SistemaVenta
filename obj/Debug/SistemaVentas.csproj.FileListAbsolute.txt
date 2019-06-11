@@ -1,0 +1,10 @@
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.exe.config
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.exe
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.pdb
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csprojAssemblyReference.cache
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Presentacion.FrmCliente.resources
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Properties.Resources.resources
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csproj.GenerateResource.cache
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csproj.CoreCompileInputs.cache
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.exe
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.pdb
