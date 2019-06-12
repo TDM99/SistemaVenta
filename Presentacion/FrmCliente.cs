@@ -25,6 +25,7 @@ namespace SistemaVentas.Presentacion
                 if (dt.Rows.Count > 0)
                 {
                     lblDatosNoEncontrados.Visible = false;
+                    DgvClientes_CellClick(null, null);
                 }
                 else
                 {
@@ -53,23 +54,68 @@ namespace SistemaVentas.Presentacion
         {
             try
             {
-                Cliente cliente = new Cliente();
-                cliente.Nombre = txtNombre.Text;
-                cliente.Apellido = txtApellido.Text;
-                cliente.Domicilio = txtDomicilio.Text;
-                cliente.Dni = Convert.ToInt32(txtDni.Text);
-                cliente.Telefono = txtTelefono.Text;
+               string sResultado = ValidarDatos();
 
-                if (FCliente.Insertar(cliente) >= 0)
+                if(sResultado=="")
                 {
-                    MessageBox.Show("Datos insertados correctamente");
-                    FrmCliente_Load(null, null);
+                    if (txtId.Text == "")
+                    {
+
+                        Cliente cliente = new Cliente();
+                        cliente.Nombre = txtNombre.Text;
+                        cliente.Apellido = txtApellido.Text;
+                        cliente.Domicilio = txtDomicilio.Text;
+                        cliente.Dni = Convert.ToInt32(txtDni.Text);
+                        cliente.Telefono = txtTelefono.Text;
+
+                        if (FCliente.Insertar(cliente) >= 0)
+                        {
+                            MessageBox.Show("Datos insertados correctamente");
+                            FrmCliente_Load(null, null);
+                        }
+                    }
+                    else
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.Id = Convert.ToInt32(txtId.Text);
+                        cliente.Nombre = txtNombre.Text;
+                        cliente.Apellido = txtApellido.Text;
+                        cliente.Domicilio = txtDomicilio.Text;
+                        cliente.Dni = Convert.ToInt32(txtDni.Text);
+                        cliente.Telefono = txtTelefono.Text;
+
+                        if (FCliente.Actualizar(cliente) == 1)
+                        {
+                            MessageBox.Show("Datos Modificados correctamente");
+                            FrmCliente_Load(null, null);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Faltan Campos por llenar: \n" + sResultado);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        public string ValidarDatos()
+        {
+            string Resusltado = "";
+            if(txtNombre.Text =="")
+            {
+                Resusltado = Resusltado + "Nombre \n";
+            }
+            if (txtApellido.Text == "")
+            {
+                Resusltado = Resusltado + "Apellido";
+            }
+
+            return Resusltado;
         }
 
         public void MostrasGuardarCancelar(bool b)
@@ -108,17 +154,20 @@ namespace SistemaVentas.Presentacion
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             MostrasGuardarCancelar(false);
-
+            DgvClientes_CellClick(null, null);
         }
 
         private void DgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           txtId.Text= dgvClientes.CurrentRow.Cells[1].Value.ToString();
-            txtNombre.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            txtApellido.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
-            txtTelefono.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
-            txtDni.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
-            txtDomicilio.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            if (dgvClientes.CurrentRow != null)
+            {
+                txtId.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+                txtNombre.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+                txtApellido.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+                txtTelefono.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+                txtDni.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+                txtDomicilio.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            }
 
         }
     }
