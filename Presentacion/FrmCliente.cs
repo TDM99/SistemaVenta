@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using SistemaVentas.Datos;
+using SistemaVentas.Entidades;
 
 namespace SistemaVentas.Presentacion
 {
@@ -44,6 +45,29 @@ namespace SistemaVentas.Presentacion
         private void TextBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente.Nombre = txtNombre.Text;
+                cliente.Apellido = txtApellido.Text;
+                cliente.Domicilio = txtDomicilio.Text;
+                cliente.Dni = Convert.ToInt32(txtDni.Text);
+                cliente.Telefono = txtTelefono.Text;
+
+                if (FCliente.Insertar(cliente) >= 0)
+                {
+                    MessageBox.Show("Datos insertados correctamente");
+                    FrmCliente_Load(null, null);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

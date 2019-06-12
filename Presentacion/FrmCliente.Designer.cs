@@ -37,15 +37,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDomicilio = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -65,9 +65,9 @@
             this.groupBox1.Controls.Add(this.dgvClientes);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Location = new System.Drawing.Point(358, 12);
+            this.groupBox1.Location = new System.Drawing.Point(344, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(492, 499);
+            this.groupBox1.Size = new System.Drawing.Size(589, 499);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Clientes";
@@ -75,7 +75,7 @@
             // lblDatosNoEncontrados
             // 
             this.lblDatosNoEncontrados.AutoSize = true;
-            this.lblDatosNoEncontrados.Location = new System.Drawing.Point(159, 237);
+            this.lblDatosNoEncontrados.Location = new System.Drawing.Point(200, 237);
             this.lblDatosNoEncontrados.Name = "lblDatosNoEncontrados";
             this.lblDatosNoEncontrados.Size = new System.Drawing.Size(193, 15);
             this.lblDatosNoEncontrados.TabIndex = 3;
@@ -83,9 +83,9 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(212, 31);
+            this.txtBuscar.Location = new System.Drawing.Point(286, 31);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(274, 21);
+            this.txtBuscar.Size = new System.Drawing.Size(297, 21);
             this.txtBuscar.TabIndex = 2;
             // 
             // cmbBuscar
@@ -108,10 +108,10 @@
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.dgvClientes.Location = new System.Drawing.Point(17, 68);
+            this.dgvClientes.Location = new System.Drawing.Point(6, 68);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(469, 380);
+            this.dgvClientes.Size = new System.Drawing.Size(577, 380);
             this.dgvClientes.TabIndex = 0;
             // 
             // groupBox2
@@ -119,15 +119,15 @@
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.btnNuevo);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtDomicilio);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtDni);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtApellido);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtId);
             this.groupBox2.Controls.Add(this.label1);
@@ -166,13 +166,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nombre";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox1.Location = new System.Drawing.Point(115, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtNombre.Location = new System.Drawing.Point(115, 110);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(168, 21);
+            this.txtNombre.TabIndex = 1;
             // 
             // label3
             // 
@@ -183,13 +183,13 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Apellido";
             // 
-            // textBox2
+            // txtApellido
             // 
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox2.Location = new System.Drawing.Point(115, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 21);
-            this.textBox2.TabIndex = 1;
+            this.txtApellido.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtApellido.Location = new System.Drawing.Point(115, 160);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(168, 21);
+            this.txtApellido.TabIndex = 1;
             // 
             // label4
             // 
@@ -200,13 +200,13 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Dni";
             // 
-            // textBox3
+            // txtDni
             // 
-            this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox3.Location = new System.Drawing.Point(116, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(168, 21);
-            this.textBox3.TabIndex = 1;
+            this.txtDni.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtDni.Location = new System.Drawing.Point(116, 213);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(168, 21);
+            this.txtDni.TabIndex = 1;
             // 
             // label5
             // 
@@ -218,14 +218,14 @@
             this.label5.Text = "Domicilio";
             this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
-            // textBox4
+            // txtDomicilio
             // 
-            this.textBox4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox4.Location = new System.Drawing.Point(116, 268);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(168, 21);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
+            this.txtDomicilio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtDomicilio.Location = new System.Drawing.Point(116, 268);
+            this.txtDomicilio.Name = "txtDomicilio";
+            this.txtDomicilio.Size = new System.Drawing.Size(168, 21);
+            this.txtDomicilio.TabIndex = 1;
+            this.txtDomicilio.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
             // 
             // label6
             // 
@@ -236,13 +236,13 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Telefono";
             // 
-            // textBox5
+            // txtTelefono
             // 
-            this.textBox5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox5.Location = new System.Drawing.Point(116, 328);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(168, 21);
-            this.textBox5.TabIndex = 1;
+            this.txtTelefono.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtTelefono.Location = new System.Drawing.Point(116, 328);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(168, 21);
+            this.txtTelefono.TabIndex = 1;
             // 
             // btnNuevo
             // 
@@ -265,6 +265,7 @@
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -298,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(878, 541);
+            this.ClientSize = new System.Drawing.Size(945, 541);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmCliente";
@@ -325,15 +326,15 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
