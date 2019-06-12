@@ -8,7 +8,7 @@ namespace SistemaVentas.Presentacion
 {
     public partial class FrmCliente : Form
     {
-        private static DataTable dt= new DataTable();
+        private static DataTable dt = new DataTable();
         public FrmCliente()
         {
             InitializeComponent();
@@ -18,11 +18,11 @@ namespace SistemaVentas.Presentacion
         {
             try
             {
-               DataSet ds= FCliente.GetAll();
+                DataSet ds = FCliente.GetAll();
                 dt = ds.Tables[0];
                 dgvClientes.DataSource = dt;
 
-                if(dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
                     lblDatosNoEncontrados.Visible = false;
                 }
@@ -30,8 +30,10 @@ namespace SistemaVentas.Presentacion
                 {
                     lblDatosNoEncontrados.Visible = true;
                 }
+
+                MostrasGuardarCancelar(false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
@@ -64,10 +66,60 @@ namespace SistemaVentas.Presentacion
                     FrmCliente_Load(null, null);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        public void MostrasGuardarCancelar(bool b)
+        {
+            btnGuardar.Visible = b;
+            btnCancelar.Visible = b;
+            btnNuevo.Visible = !b;
+            btnEditar.Visible = !b;
+            btnEliminar.Visible = !b;
+
+            dgvClientes.Enabled = !b;
+
+            txtNombre.Enabled = b;
+            txtApellido.Enabled = b;
+            txtDni.Enabled = b;
+            txtDomicilio.Enabled = b;
+            txtTelefono.Enabled = b;
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            MostrasGuardarCancelar(true);
+            txtId.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDni.Text = "";
+            txtTelefono.Text = "";
+            txtDomicilio.Text = "";
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            MostrasGuardarCancelar(true);
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            MostrasGuardarCancelar(false);
+
+        }
+
+        private void DgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           txtId.Text= dgvClientes.CurrentRow.Cells[1].Value.ToString();
+            txtNombre.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+            txtApellido.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            txtTelefono.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+            txtDni.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+            txtDomicilio.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+
         }
     }
 }
