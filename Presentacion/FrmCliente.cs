@@ -170,5 +170,71 @@ namespace SistemaVentas.Presentacion
             }
 
         }
+
+        private void DgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex==dgvClientes.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkEliminar =
+                    (DataGridViewCheckBoxCell) dgvClientes.Rows[e.RowIndex].Cells["Eliminar"];
+                chkEliminar.Value = !Convert.ToBoolean(chkEliminar.Value);
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Quiere eliminar los clientes selecionados?", "Eliminacion de Cliente",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    foreach (DataGridViewRow row in dgvClientes.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells["Eliminar"].Value))
+                        {
+                            Cliente cliente = new Cliente();
+                            cliente.Id = Convert.ToInt32(row.Cells["Id"].Value);
+                            if (FCliente.Eliminar(cliente) != 1)
+                            {
+                                MessageBox.Show("El cliente no pudo ser eliminado", "Eliminacion de Cliente",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+
+                    }
+
+                    FrmCliente_Load(null, null);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = new DataView(dt.Copy());
+                dv.RowFilter = cmbBuscar.Text + " Like '" + txtBuscar.Text + "%'";
+
+                dgvClientes.DataSource = dv;
+
+                if(dv.Count == 0)
+                {
+                    lblDatosNoEncontrados.Visible = true;
+                }
+                else
+                {
+                    lblDatosNoEncontrados.Visible = false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }
