@@ -52,6 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtFlag = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -68,7 +69,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Location = new System.Drawing.Point(344, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(589, 499);
+            this.groupBox1.Size = new System.Drawing.Size(589, 517);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Clientes";
@@ -131,6 +132,7 @@
             this.dgvClientes.TabIndex = 0;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellClick);
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellContentClick);
+            this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellDoubleClick);
             // 
             // Eliminar
             // 
@@ -158,9 +160,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(23, 12);
+            this.groupBox2.Location = new System.Drawing.Point(23, 38);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(315, 499);
+            this.groupBox2.Size = new System.Drawing.Size(315, 491);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Clientes";
@@ -169,7 +171,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(166, 390);
+            this.btnCancelar.Location = new System.Drawing.Point(166, 377);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 36);
             this.btnCancelar.TabIndex = 2;
@@ -181,7 +183,7 @@
             // 
             this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardar.Location = new System.Drawing.Point(60, 390);
+            this.btnGuardar.Location = new System.Drawing.Point(60, 377);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 36);
             this.btnGuardar.TabIndex = 2;
@@ -193,7 +195,7 @@
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.Location = new System.Drawing.Point(166, 445);
+            this.btnEditar.Location = new System.Drawing.Point(166, 432);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 36);
             this.btnEditar.TabIndex = 2;
@@ -205,7 +207,7 @@
             // 
             this.btnNuevo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNuevo.Location = new System.Drawing.Point(60, 445);
+            this.btnNuevo.Location = new System.Drawing.Point(60, 432);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 36);
             this.btnNuevo.TabIndex = 2;
@@ -220,6 +222,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(168, 21);
             this.txtTelefono.TabIndex = 1;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
             // 
             // label6
             // 
@@ -318,6 +321,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Id";
             // 
+            // txtFlag
+            // 
+            this.txtFlag.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFlag.Location = new System.Drawing.Point(214, 12);
+            this.txtFlag.Name = "txtFlag";
+            this.txtFlag.Size = new System.Drawing.Size(92, 20);
+            this.txtFlag.TabIndex = 1;
+            this.txtFlag.Visible = false;
+            this.txtFlag.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +339,7 @@
             this.ClientSize = new System.Drawing.Size(945, 541);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtFlag);
             this.Name = "FrmCliente";
             this.Text = "Mantenimiento de Clientes";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
@@ -335,6 +349,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -364,5 +379,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.TextBox txtFlag;
     }
 }

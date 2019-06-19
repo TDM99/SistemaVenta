@@ -10,3 +10,4 @@ C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\
 C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.pdb
 C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Presentacion.FrmCategoria.resources
 C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Presentacion.FrmProducto.resources
+C:\Users\E5540\Downloads\Sistema de venta\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Presentacion.FrmVenta.resources

@@ -226,8 +226,7 @@ namespace SistemaVentas.Presentacion
         {
             if (dgvProducto.CurrentRow != null)
             {
-                /*					Stock	PrecioCompra	
-                	FechaVencimiento	imagen */
+           
 
                 txtId.Text = dgvProducto.CurrentRow.Cells["Id"].Value.ToString();
                 txtCategoriaId.Text = dgvProducto.CurrentRow.Cells["CategoriaId"].Value.ToString();

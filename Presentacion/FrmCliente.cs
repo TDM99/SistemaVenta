@@ -236,5 +236,31 @@ namespace SistemaVentas.Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        internal void SetFlag(string band)
+        {
+            txtFlag.Text = band;
+        }
+
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (txtFlag.Text == "1")
+            {
+
+                FrmVenta frmVenta = FrmVenta.GetInscance();
+                if (dgvClientes.CurrentRow != null)
+                {
+                    frmVenta.SetCliente(dgvClientes.CurrentRow.Cells[1].Value.ToString(), 
+                        dgvClientes.CurrentRow.Cells[2].Value.ToString());
+                    frmVenta.Show();
+                    Close();
+                }
+            }
+        }
     }
 }
