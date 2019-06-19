@@ -44,6 +44,7 @@
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtFlag = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
@@ -221,12 +222,23 @@
             this.dgvCategoria.TabIndex = 0;
             this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCategoria_CellClick);
             this.dgvCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCategoria_CellContentClick);
+            this.dgvCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCategoria_CellDoubleClick);
             // 
             // Eliminar
             // 
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
+            // 
+            // txtFlag
+            // 
+            this.txtFlag.Enabled = false;
+            this.txtFlag.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFlag.Location = new System.Drawing.Point(298, 9);
+            this.txtFlag.Name = "txtFlag";
+            this.txtFlag.Size = new System.Drawing.Size(52, 20);
+            this.txtFlag.TabIndex = 1;
+            this.txtFlag.Visible = false;
             // 
             // FrmCategoria
             // 
@@ -235,6 +247,7 @@
             this.ClientSize = new System.Drawing.Size(954, 557);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtFlag);
             this.Name = "FrmCategoria";
             this.Text = "Mantennimiento de Categorias";
             this.Load += new System.EventHandler(this.FrmCategoria_Load);
@@ -244,6 +257,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -265,5 +279,6 @@
         private System.Windows.Forms.ComboBox cmbBuscar;
         private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
+        private System.Windows.Forms.TextBox txtFlag;
     }
 }

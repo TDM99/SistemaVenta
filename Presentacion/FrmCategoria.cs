@@ -20,6 +20,10 @@ namespace SistemaVentas.Presentacion
             InitializeComponent();
         }
 
+        public void SetFlag(string valor)
+        {
+            txtFlag.Text = valor;
+        }
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             try
@@ -211,6 +215,21 @@ namespace SistemaVentas.Presentacion
 
             txtNombre.Enabled = b;
             
+        }
+
+        private void DgvCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (txtFlag.Text == "1")
+            {
+
+                FrmProducto frmProd = FrmProducto.GetInscance();
+                if (dgvCategoria.CurrentRow != null)
+                {
+                    frmProd.SetCategoria(dgvCategoria.CurrentRow.Cells[1].Value.ToString(), dgvCategoria.CurrentRow.Cells[2].Value.ToString());
+                    frmProd.Show();
+                    Close();
+                }
+            }
         }
     }
 }

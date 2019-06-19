@@ -9,7 +9,7 @@ namespace SistemaVentas.Entidades
    public class Producto
     {
         private int _id;
-        private Categoria categoria;
+        private Categoria _categoria;
         private string _nombre;
         private string _descripcion;
         private double _stock;
@@ -19,7 +19,7 @@ namespace SistemaVentas.Entidades
         private byte[] _imagen;
 
         public int Id { get => _id; set => _id = value; }
-        public Categoria Categoria { get => categoria; set => categoria = value; }
+        public Categoria Categoria { get => _categoria; set => _categoria = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
         public double Stock { get => _stock; set => _stock = value; }
@@ -30,7 +30,7 @@ namespace SistemaVentas.Entidades
 
         public Producto()
         {
-
+            _categoria = new Categoria();
         }
         public Producto(int id,Categoria categoria,string nombre,string descripcion,double stock,double precioCompra,
             double precioventa,DateTime fechaVencimiento,byte[] imagen)
