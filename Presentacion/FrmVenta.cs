@@ -207,6 +207,7 @@ namespace SistemaVentas.Presentacion
 
         private void DgvVentas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (dgvVentas.CurrentRow != null)
             {
                 txtId.Text = dgvVentas.CurrentRow.Cells["Id"].Value.ToString();
