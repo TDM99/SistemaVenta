@@ -72,7 +72,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(121, 464);
+            this.btnCancelar.Location = new System.Drawing.Point(193, 464);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 36);
             this.btnCancelar.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardar.Location = new System.Drawing.Point(15, 464);
+            this.btnGuardar.Location = new System.Drawing.Point(87, 464);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 36);
             this.btnGuardar.TabIndex = 2;
@@ -96,7 +96,7 @@
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.Location = new System.Drawing.Point(121, 519);
+            this.btnEditar.Location = new System.Drawing.Point(193, 519);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 36);
             this.btnEditar.TabIndex = 2;
@@ -108,7 +108,7 @@
             // 
             this.btnNuevo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNuevo.Location = new System.Drawing.Point(15, 519);
+            this.btnNuevo.Location = new System.Drawing.Point(87, 519);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 36);
             this.btnNuevo.TabIndex = 2;

@@ -53,7 +53,7 @@ namespace SistemaVentas.Datos
                     FDBHelper.MakeParam("@FechaVencimiento", SqlDbType.Date, 0, producto.FechaVencimineto),
                     FDBHelper.MakeParam("@imagen", SqlDbType.Image, 0, producto.Imagen),
                 };
-            return Convert.ToInt32(FDBHelper.ExecuteScalar("usp_Data_FPeoducto_Actualizar", dbParams));
+            return Convert.ToInt32(FDBHelper.ExecuteScalar("usp_Data_FProducto_Actualizar", dbParams));
 
         }
 

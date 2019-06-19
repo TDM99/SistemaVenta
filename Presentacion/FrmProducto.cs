@@ -166,7 +166,17 @@ namespace SistemaVentas.Presentacion
             MostrasGuardarCancelar(true);
             txtId.Text = "";
             txtNombre.Text = "";
-           
+            txtCategoriaId.Text = "";
+            txtCategoriaDescripcion.Text = "";
+            txtDescripcion.Text = "";
+            txtStock.Text = "";
+            txtPrecioCompra.Text = "";
+            txtPrecioVenta.Text = "";
+
+            Imagen.BackgroundImage = Resources.transparente;
+            Imagen.Image = null;
+            Imagen.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -255,8 +265,10 @@ namespace SistemaVentas.Presentacion
                 dt = ds.Tables[0];
                 dgvProducto.DataSource = dt;
 
+
                 if (dt.Rows.Count > 0)
                 {
+                    dgvProducto.Columns["Imagen"].Visible = false;
                     lblDatosNoEncontrados.Visible = false;
                     DgvProducto_CellClick(null, null);
                 }
@@ -284,7 +296,19 @@ namespace SistemaVentas.Presentacion
             dgvProducto.Enabled = !b;
 
             txtNombre.Enabled = b;
-     
+
+            btnCambiar.Visible = b;
+            btnQuitar.Visible = b;
+            btnBuscarCategoria.Visible = b;
+
+            txtNombre.Enabled = b;
+            txtCategoriaId.Enabled = b;
+            txtCategoriaDescripcion.Enabled = b;
+            txtDescripcion.Enabled = b;
+            txtStock.Enabled = b;
+            txtPrecioCompra.Enabled = b;
+            txtPrecioVenta.Enabled = b;
+
         }
     }
 }
