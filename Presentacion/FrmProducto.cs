@@ -206,7 +206,7 @@ namespace SistemaVentas.Presentacion
                             producto.Id = Convert.ToInt32(row.Cells["Id"].Value);
                             if (FProducto.Eliminar(producto) != 1)
                             {
-                                MessageBox.Show("El Producto no pudo ser eliminado", "Eliminacion de Producto",
+                                MessageBox.Show("El Producto fue eliminado", "Eliminacion de Producto",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
