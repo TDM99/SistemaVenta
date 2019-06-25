@@ -15,6 +15,7 @@ namespace SistemaVentas.Presentacion
     public partial class FrmCategoria : Form
     {
         private static DataTable dt = new DataTable();
+
         public FrmCategoria()
         {
             InitializeComponent();
