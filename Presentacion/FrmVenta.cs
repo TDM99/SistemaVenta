@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaVentas.Entidades;
 
+
 namespace SistemaVentas.Presentacion
 {
     public partial class FrmVenta : Form
     {
         private static DataTable dt = new DataTable();
-        private static FrmVenta _instancia=null;
+        private static FrmVenta _instancia = null;
         public FrmVenta()
         {
             InitializeComponent();
@@ -60,7 +61,7 @@ namespace SistemaVentas.Presentacion
             btnCancelar.Visible = b;
             btnNuevo.Visible = !b;
             btnEditar.Visible = !b;
-           
+
             dgvVentas.Enabled = !b;
 
             txtFecha.Enabled = b;
@@ -109,12 +110,14 @@ namespace SistemaVentas.Presentacion
                         venta.TipoDocumento = cmbTipoDoc.Text;
                         venta.NumeroDocumento = txtNumeroDocumento.Text;
 
+                        venta.Cliente.Nombre = txtClienteNombre.Text;
+
                         int iVentaId = FVenta.Insertar(venta);
                         if (iVentaId > 0)
                         {
 
-                            FrmVenta_Load(null,null);
-                            //CargarDetalle(iVentaId);
+                            FrmVenta_Load(null, null);
+                            CargarDetalle(venta);
                         }
                     }
                     else
@@ -145,9 +148,11 @@ namespace SistemaVentas.Presentacion
             }
         }
 
-        private void CargarDetalle(int iVentaId)
+        private void CargarDetalle(Venta venta)
         {
-            throw new NotImplementedException();
+            FrmDetalleVenta fDetVenta = FrmDetalleVenta.GetInstance();
+            fDetVenta.SetVenta(venta);
+            fDetVenta.ShowDialog();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -163,7 +168,7 @@ namespace SistemaVentas.Presentacion
             txtClienteId.Text = "";
             txtClienteNombre.Text = "";
             txtNumeroDocumento.Text = "";
-            
+
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -212,7 +217,7 @@ namespace SistemaVentas.Presentacion
             {
                 txtId.Text = dgvVentas.CurrentRow.Cells["Id"].Value.ToString();
                 txtClienteId.Text = dgvVentas.CurrentRow.Cells["ClienteId"].Value.ToString();
-                txtClienteNombre.Text = dgvVentas.CurrentRow.Cells["Nombre"].Value.ToString() + " " + dgvVentas.CurrentRow.Cells["Apellido"].Value.ToString(); 
+                txtClienteNombre.Text = dgvVentas.CurrentRow.Cells["Nombre"].Value.ToString() + " " + dgvVentas.CurrentRow.Cells["Apellido"].Value.ToString();
                 txtFecha.Text = dgvVentas.CurrentRow.Cells["FechaVenta"].Value.ToString();
                 cmbTipoDoc.Text = dgvVentas.CurrentRow.Cells["TipoDocumento"].Value.ToString();
                 txtNumeroDocumento.Text = dgvVentas.CurrentRow.Cells["NumeroDocumento"].Value.ToString();
@@ -223,6 +228,50 @@ namespace SistemaVentas.Presentacion
         {
             txtClienteId.Text = sIdCliente;
             txtClienteNombre.Text = sNombreCliente;
+        }
+
+        //internal void Setventa(Venta venta)
+        //{
+        //    txtId.Text = venta.Id.ToString();
+        //    txtClienteId.Text = venta.Cliente.Id.ToString();
+        //    txtClienteNombre.Text = venta.Cliente.Nombre;
+        //    txtFecha.Text = venta.FechaVenta.ToShortDateString();
+        //    cmbTipoDoc.Text = venta.TipoDocumento;
+        //    txtNumeroDocumento.Text = venta.NumeroDocumento;
+        //}
+
+        private void DgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (dgvVentas.CurrentRow != null)
+            //{
+            //    Venta venta = new Venta();
+
+            //    venta.Id = Convert.ToInt32(dgvVentas.CurrentRow.Cells["Id"].Value.ToString());
+            //    venta.Cliente.Id = Convert.ToInt32(dgvVentas.CurrentRow.Cells["ClienteId"].Value.ToString());
+            //    venta.Cliente.Nombre = dgvVentas.CurrentRow.Cells["Nombre"].Value.ToString() + " " + dgvVentas.CurrentRow.Cells["Apellido"].Value.ToString();
+            //    venta.FechaVenta = Convert.ToDateTime(dgvVentas.CurrentRow.Cells["FechaVenta"].Value.ToString());
+            //    venta.TipoDocumento = dgvVentas.CurrentRow.Cells["TipoDocumento"].Value.ToString();
+            //    venta.NumeroDocumento = dgvVentas.CurrentRow.Cells["NumeroDocumento"].Value.ToString();
+
+            //    CargarDetalle(venta);
+            //}
+        }
+
+        private void DgvVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvVentas.CurrentRow != null)
+            {
+                Venta venta = new Venta();
+
+                venta.Id = Convert.ToInt32(dgvVentas.CurrentRow.Cells["Id"].Value.ToString());
+                venta.Cliente.Id = Convert.ToInt32(dgvVentas.CurrentRow.Cells["ClienteId"].Value.ToString());
+                venta.Cliente.Nombre = dgvVentas.CurrentRow.Cells["Nombre"].Value.ToString() + " " + dgvVentas.CurrentRow.Cells["Apellido"].Value.ToString();
+                venta.FechaVenta = Convert.ToDateTime(dgvVentas.CurrentRow.Cells["FechaVenta"].Value.ToString());
+                venta.TipoDocumento = dgvVentas.CurrentRow.Cells["TipoDocumento"].Value.ToString();
+                venta.NumeroDocumento = dgvVentas.CurrentRow.Cells["NumeroDocumento"].Value.ToString();
+
+                CargarDetalle(venta);
+            }
         }
     }
 }

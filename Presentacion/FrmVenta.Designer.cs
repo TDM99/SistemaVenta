@@ -46,11 +46,11 @@
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtClienteNombre = new System.Windows.Forms.TextBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
+            this.txtFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.txtClienteNombre = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -221,6 +221,8 @@
             this.dgvVentas.TabIndex = 0;
             this.dgvVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellClick);
             this.dgvVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellContentClick);
+            this.dgvVentas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellContentDoubleClick);
+            this.dgvVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVentas_CellDoubleClick);
             // 
             // groupBox2
             // 
@@ -249,6 +251,47 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Ventas";
             // 
+            // cmbTipoDoc
+            // 
+            this.cmbTipoDoc.FormattingEnabled = true;
+            this.cmbTipoDoc.Items.AddRange(new object[] {
+            "Boleta",
+            "Factura"});
+            this.cmbTipoDoc.Location = new System.Drawing.Point(101, 184);
+            this.cmbTipoDoc.Name = "cmbTipoDoc";
+            this.cmbTipoDoc.Size = new System.Drawing.Size(199, 23);
+            this.cmbTipoDoc.TabIndex = 4;
+            this.cmbTipoDoc.Text = "Factura";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFecha.Location = new System.Drawing.Point(101, 131);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(200, 21);
+            this.txtFecha.TabIndex = 3;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnBuscarCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(314, 76);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(38, 30);
+            this.btnBuscarCliente.TabIndex = 2;
+            this.btnBuscarCliente.Text = "....";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.BtnBuscarCliente_Click);
+            // 
+            // txtClienteNombre
+            // 
+            this.txtClienteNombre.Enabled = false;
+            this.txtClienteNombre.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtClienteNombre.Location = new System.Drawing.Point(160, 81);
+            this.txtClienteNombre.Name = "txtClienteNombre";
+            this.txtClienteNombre.Size = new System.Drawing.Size(141, 21);
+            this.txtClienteNombre.TabIndex = 1;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblDatosNoEncontrados);
@@ -263,47 +306,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Ventas";
-            // 
-            // txtClienteNombre
-            // 
-            this.txtClienteNombre.Enabled = false;
-            this.txtClienteNombre.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtClienteNombre.Location = new System.Drawing.Point(160, 81);
-            this.txtClienteNombre.Name = "txtClienteNombre";
-            this.txtClienteNombre.Size = new System.Drawing.Size(141, 21);
-            this.txtClienteNombre.TabIndex = 1;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnBuscarCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(314, 76);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(38, 30);
-            this.btnBuscarCliente.TabIndex = 2;
-            this.btnBuscarCliente.Text = "....";
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.BtnBuscarCliente_Click);
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFecha.Location = new System.Drawing.Point(101, 131);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(200, 21);
-            this.txtFecha.TabIndex = 3;
-            // 
-            // cmbTipoDoc
-            // 
-            this.cmbTipoDoc.FormattingEnabled = true;
-            this.cmbTipoDoc.Items.AddRange(new object[] {
-            "Boleta",
-            "Factura"});
-            this.cmbTipoDoc.Location = new System.Drawing.Point(101, 184);
-            this.cmbTipoDoc.Name = "cmbTipoDoc";
-            this.cmbTipoDoc.Size = new System.Drawing.Size(199, 23);
-            this.cmbTipoDoc.TabIndex = 4;
-            this.cmbTipoDoc.Text = "Factura";
             // 
             // FrmVenta
             // 

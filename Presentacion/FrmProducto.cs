@@ -26,9 +26,14 @@ namespace SistemaVentas.Presentacion
 
         public static FrmProducto GetInscance()
         {
-            if(_instancia == null)
-              _instancia = new FrmProducto();
-            return _instancia; 
+            if (_instancia == null)
+                _instancia = new FrmProducto();
+            return _instancia;
+        }
+
+        public void SetFlag(string sValor)
+        {
+            txtFlag.Text = sValor;
         }
 
         public void SetCategoria(string id, string descripcion)
@@ -51,7 +56,7 @@ namespace SistemaVentas.Presentacion
 
         private void BtnCambiar_Click(object sender, EventArgs e)
         {
-            if(dialogo.ShowDialog() == DialogResult.OK)
+            if (dialogo.ShowDialog() == DialogResult.OK)
             {
                 Imagen.BackgroundImage = null;
                 Imagen.Image = new Bitmap(dialogo.FileName);
@@ -89,7 +94,7 @@ namespace SistemaVentas.Presentacion
 
                         MemoryStream ms = new MemoryStream();
 
-                        if(Imagen.Image != null)
+                        if (Imagen.Image != null)
                         {
                             Imagen.Image.Save(ms, Imagen.Image.RawFormat);
                         }
@@ -226,7 +231,7 @@ namespace SistemaVentas.Presentacion
         {
             if (dgvProducto.CurrentRow != null)
             {
-           
+
 
                 txtId.Text = dgvProducto.CurrentRow.Cells["Id"].Value.ToString();
                 txtCategoriaId.Text = dgvProducto.CurrentRow.Cells["CategoriaId"].Value.ToString();
@@ -239,7 +244,7 @@ namespace SistemaVentas.Presentacion
                 txtFechaVencimiento.Text = dgvProducto.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
 
                 Imagen.BackgroundImage = null;
-                byte[] b = (byte[]) dgvProducto.CurrentRow.Cells["Imagen"].Value;
+                byte[] b = (byte[])dgvProducto.CurrentRow.Cells["Imagen"].Value;
                 MemoryStream ms = new MemoryStream(b);
                 Imagen.Image = Image.FromStream(ms);
                 Imagen.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -308,6 +313,27 @@ namespace SistemaVentas.Presentacion
             txtPrecioCompra.Enabled = b;
             txtPrecioVenta.Enabled = b;
 
+        }
+
+        private void DgvProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (txtFlag.Text == "1")
+            {
+
+                FrmDetalleVenta frmDetVenta = FrmDetalleVenta.GetInstance();
+                if (dgvProducto.CurrentRow != null)
+                {
+                    Producto producto =new Producto();
+                    producto.Id = Convert.ToInt32(dgvProducto.CurrentRow.Cells["Id"].Value.ToString());
+                    producto.Nombre = dgvProducto.CurrentRow.Cells["Nombre"].Value.ToString();
+                    producto.Stock = Convert.ToDouble(dgvProducto.CurrentRow.Cells["Stock"].Value.ToString());
+                    producto.PrecioVenta = Convert.ToDouble(dgvProducto.CurrentRow.Cells["PrecioVenta"].Value.ToString());
+
+                    frmDetVenta.SetProducto(producto); 
+                    frmDetVenta.Show();
+                    Close();
+                }
+            }
         }
     }
 }

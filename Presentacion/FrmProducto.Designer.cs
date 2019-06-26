@@ -51,21 +51,22 @@
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCategoriaDescripcion = new System.Windows.Forms.TextBox();
-            this.btnBuscarCategoria = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Imagen = new System.Windows.Forms.PictureBox();
-            this.btnCambiar = new System.Windows.Forms.Button();
-            this.btnQuitar = new System.Windows.Forms.Button();
             this.txtFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.Imagen = new System.Windows.Forms.PictureBox();
+            this.btnBuscarCategoria = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnCambiar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCategoriaDescripcion = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dialogo = new System.Windows.Forms.OpenFileDialog();
+            this.txtFlag = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -283,6 +284,7 @@
             this.dgvProducto.TabIndex = 0;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProducto_CellClick);
             this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProducto_CellContentClick);
+            this.dgvProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProducto_CellDoubleClick);
             // 
             // groupBox2
             // 
@@ -313,13 +315,101 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Location = new System.Drawing.Point(3, 11);
+            this.groupBox2.Location = new System.Drawing.Point(3, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(377, 563);
+            this.groupBox2.Size = new System.Drawing.Size(377, 562);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Producto";
             this.groupBox2.Enter += new System.EventHandler(this.GroupBox2_Enter);
+            // 
+            // txtFechaVencimiento
+            // 
+            this.txtFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaVencimiento.Location = new System.Drawing.Point(151, 313);
+            this.txtFechaVencimiento.Name = "txtFechaVencimiento";
+            this.txtFechaVencimiento.Size = new System.Drawing.Size(206, 21);
+            this.txtFechaVencimiento.TabIndex = 4;
+            // 
+            // Imagen
+            // 
+            this.Imagen.BackgroundImage = global::SistemaVentas.Properties.Resources.transparente;
+            this.Imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Imagen.Location = new System.Drawing.Point(21, 343);
+            this.Imagen.Name = "Imagen";
+            this.Imagen.Size = new System.Drawing.Size(175, 105);
+            this.Imagen.TabIndex = 3;
+            this.Imagen.TabStop = false;
+            // 
+            // btnBuscarCategoria
+            // 
+            this.btnBuscarCategoria.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnBuscarCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarCategoria.Location = new System.Drawing.Point(325, 69);
+            this.btnBuscarCategoria.Name = "btnBuscarCategoria";
+            this.btnBuscarCategoria.Size = new System.Drawing.Size(32, 30);
+            this.btnBuscarCategoria.TabIndex = 2;
+            this.btnBuscarCategoria.Text = "....";
+            this.btnBuscarCategoria.UseVisualStyleBackColor = false;
+            this.btnBuscarCategoria.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // btnQuitar
+            // 
+            this.btnQuitar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnQuitar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnQuitar.Location = new System.Drawing.Point(216, 402);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(126, 36);
+            this.btnQuitar.TabIndex = 2;
+            this.btnQuitar.Text = "Quitar Imagen";
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
+            // 
+            // btnCambiar
+            // 
+            this.btnCambiar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCambiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCambiar.Location = new System.Drawing.Point(216, 343);
+            this.btnCambiar.Name = "btnCambiar";
+            this.btnCambiar.Size = new System.Drawing.Size(126, 36);
+            this.btnCambiar.TabIndex = 2;
+            this.btnCambiar.Text = "Cambiar Imagen";
+            this.btnCambiar.UseVisualStyleBackColor = false;
+            this.btnCambiar.Click += new System.EventHandler(this.BtnCambiar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 319);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(129, 15);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Fecha Vencimiento";
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtPrecioVenta.Location = new System.Drawing.Point(150, 276);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(207, 21);
+            this.txtPrecioVenta.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 280);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Precio Venta";
+            // 
+            // txtCategoriaDescripcion
+            // 
+            this.txtCategoriaDescripcion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtCategoriaDescripcion.Location = new System.Drawing.Point(202, 74);
+            this.txtCategoriaDescripcion.Name = "txtCategoriaDescripcion";
+            this.txtCategoriaDescripcion.Size = new System.Drawing.Size(117, 21);
+            this.txtCategoriaDescripcion.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -337,103 +427,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Producto";
             // 
-            // txtCategoriaDescripcion
-            // 
-            this.txtCategoriaDescripcion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtCategoriaDescripcion.Location = new System.Drawing.Point(202, 74);
-            this.txtCategoriaDescripcion.Name = "txtCategoriaDescripcion";
-            this.txtCategoriaDescripcion.Size = new System.Drawing.Size(117, 21);
-            this.txtCategoriaDescripcion.TabIndex = 1;
-            // 
-            // btnBuscarCategoria
-            // 
-            this.btnBuscarCategoria.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnBuscarCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarCategoria.Location = new System.Drawing.Point(325, 69);
-            this.btnBuscarCategoria.Name = "btnBuscarCategoria";
-            this.btnBuscarCategoria.Size = new System.Drawing.Size(32, 30);
-            this.btnBuscarCategoria.TabIndex = 2;
-            this.btnBuscarCategoria.Text = "....";
-            this.btnBuscarCategoria.UseVisualStyleBackColor = false;
-            this.btnBuscarCategoria.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 280);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Precio Venta";
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtPrecioVenta.Location = new System.Drawing.Point(150, 276);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(207, 21);
-            this.txtPrecioVenta.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 319);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Fecha Vencimiento";
-            // 
-            // Imagen
-            // 
-            this.Imagen.BackgroundImage = global::SistemaVentas.Properties.Resources.transparente;
-            this.Imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Imagen.Location = new System.Drawing.Point(21, 343);
-            this.Imagen.Name = "Imagen";
-            this.Imagen.Size = new System.Drawing.Size(175, 105);
-            this.Imagen.TabIndex = 3;
-            this.Imagen.TabStop = false;
-            // 
-            // btnCambiar
-            // 
-            this.btnCambiar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCambiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCambiar.Location = new System.Drawing.Point(216, 343);
-            this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(126, 36);
-            this.btnCambiar.TabIndex = 2;
-            this.btnCambiar.Text = "Cambiar Imagen";
-            this.btnCambiar.UseVisualStyleBackColor = false;
-            this.btnCambiar.Click += new System.EventHandler(this.BtnCambiar_Click);
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnQuitar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnQuitar.Location = new System.Drawing.Point(216, 402);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(126, 36);
-            this.btnQuitar.TabIndex = 2;
-            this.btnQuitar.Text = "Quitar Imagen";
-            this.btnQuitar.UseVisualStyleBackColor = false;
-            this.btnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
-            // 
-            // txtFechaVencimiento
-            // 
-            this.txtFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(151, 313);
-            this.txtFechaVencimiento.Name = "txtFechaVencimiento";
-            this.txtFechaVencimiento.Size = new System.Drawing.Size(206, 21);
-            this.txtFechaVencimiento.TabIndex = 4;
-            // 
             // dialogo
             // 
             this.dialogo.FileName = "openFileDialog1";
+            // 
+            // txtFlag
+            // 
+            this.txtFlag.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFlag.Location = new System.Drawing.Point(330, -3);
+            this.txtFlag.Name = "txtFlag";
+            this.txtFlag.Size = new System.Drawing.Size(44, 20);
+            this.txtFlag.TabIndex = 4;
+            this.txtFlag.Visible = false;
             // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 586);
+            this.Controls.Add(this.txtFlag);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmProducto";
@@ -442,10 +454,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Imagen)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Imagen)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -485,5 +498,6 @@
         private System.Windows.Forms.Button btnCambiar;
         private System.Windows.Forms.DateTimePicker txtFechaVencimiento;
         private System.Windows.Forms.OpenFileDialog dialogo;
+        private System.Windows.Forms.TextBox txtFlag;
     }
 }
