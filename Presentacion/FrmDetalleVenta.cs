@@ -33,7 +33,7 @@ namespace SistemaVentas.Presentacion
         }
         private void BtnBuscarProducto_Click(object sender, EventArgs e)
         {
-            FrmProducto frmProd = new FrmProducto();
+            FrmProducto frmProd =FrmProducto.GetInscance();
             frmProd.SetFlag("1");
             frmProd.ShowDialog();
         }
@@ -48,21 +48,19 @@ namespace SistemaVentas.Presentacion
 
         internal void SetVenta(Venta venta)
         {
-            
           txtVentaId.Text = venta.Id.ToString();
           txtClienteId.Text = venta.Cliente.Id.ToString();
           txtClienteNombre.Text = venta.Cliente.Nombre;
           txtFecha.Text = venta.FechaVenta.ToShortDateString();
           cmbTipoDoc.Text = venta.TipoDocumento;
-          txtNumeroDocumento.Text = venta.NumeroDocumento;
-            
+          txtNumeroDocumento.Text = venta.NumeroDocumento; 
         }
 
         private void FrmDetalleVenta_Load(object sender, EventArgs e)
         {
             try
             {
-                DataSet ds = FDetalleVenta.GetAll();
+                DataSet ds = FDetalleVenta.GetAll(Convert.ToInt32(txtVentaId.Text));
                 dt = ds.Tables[0];
                 dgvVentas.DataSource = dt;
 

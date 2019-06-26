@@ -12,11 +12,11 @@ namespace SistemaVentas.Datos
 {
    public static class FDetalleVenta
     {
-        public static DataSet GetAll()
+        public static DataSet GetAll(int ventaId)
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-
+                     FDBHelper.MakeParam("@VentaId", SqlDbType.Int, 0,ventaId),
                 };
             return FDBHelper.ExecuteDataSet("usp_Data_FDetalleVenta_GetAll", dbParams);
 
