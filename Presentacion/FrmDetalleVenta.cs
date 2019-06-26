@@ -92,10 +92,9 @@ namespace SistemaVentas.Presentacion
 
                 if (sResultado == "")
                 {
-                    if (txtVentaId.Text == "")
-                    {
+                   
 
-                        DetalleVenta venta = new DetalleVenta();
+                        DetalleVenta detVenta = new DetalleVenta();
                         detVenta.Venta.Id = Convert.ToInt32(txtVentaId.Text);
                         detVenta.Producto.Id = Convert.ToInt32(txtProductoId.Text);
                         detVenta.Cantidad = Convert.ToDouble(txtCantidad.Text);
@@ -113,7 +112,7 @@ namespace SistemaVentas.Presentacion
                         
                             MessageBox.Show("El Producto no se pudo agregar intente nuevamente");
                         
-                    }
+                   
 
                 }
                 else
