@@ -110,9 +110,9 @@ namespace SistemaVentas.Presentacion
                             Limpiar();
                         }
                         else
-                        {
+                        
                             MessageBox.Show("El Producto no se pudo agregar intente nuevamente");
-                        }
+                        
                     }
 
                 }
@@ -131,7 +131,7 @@ namespace SistemaVentas.Presentacion
         {
             txtProductoId.Text = "";
             txtProductoDescripcion.Text = "";
-            txtCantidad.Text = "";
+            txtCantidad.Text = "1";
             txtStock.Text = "";
             txtPrecioUnitario.Text = "";
         }
