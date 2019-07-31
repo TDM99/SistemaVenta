@@ -117,6 +117,7 @@ namespace SistemaVentas.Presentacion
                         {
 
                             FrmVenta_Load(null, null);
+                            venta.Id = iVentaId;
                             CargarDetalle(venta);
                         }
                     }

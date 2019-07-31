@@ -316,7 +316,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmVenta";
-            this.Text = "Mantenimiento de Venta";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             this.groupBox2.ResumeLayout(false);

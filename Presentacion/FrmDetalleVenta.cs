@@ -63,6 +63,11 @@ namespace SistemaVentas.Presentacion
                 DataSet ds = FDetalleVenta.GetAll(Convert.ToInt32(txtVentaId.Text));
                 dt = ds.Tables[0];
                 dgvVentas.DataSource = dt;
+                //posible error
+                dgvVentas.Columns["VentaId"].Visible = false;
+                dgvVentas.Columns["Id"].Visible = false;
+                dgvVentas.Columns["ProductoId"].Visible = false;
+                dgvVentas.Columns["PrecioVenta"].Visible = false;
 
                 if (dt.Rows.Count > 0)
                 {
@@ -103,6 +108,8 @@ namespace SistemaVentas.Presentacion
                        
                         if(iDetVentaId > 0)
                         {
+                            FDetalleVenta.DisminuirStock(detVenta);
+                            FrmDetalleVenta_Load(null,null);
                             MessageBox.Show("El producto se agrego correctamente");
                             Limpiar();
                         }
@@ -148,6 +155,62 @@ namespace SistemaVentas.Presentacion
             }
 
             return Resusltado;
+        }
+
+        private void DgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvVentas.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkEliminar =
+                    (DataGridViewCheckBoxCell)dgvVentas.Rows[e.RowIndex].Cells["Eliminar"];
+                chkEliminar.Value = !Convert.ToBoolean(chkEliminar.Value);
+            }
+        }
+
+        private void BtnQuitar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Quiere eliminar los productos selecionados?", "Eliminacion de Producto",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    foreach (DataGridViewRow row in dgvVentas.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells["Eliminar"].Value))
+                        {
+                            DetalleVenta deVenta = new DetalleVenta();
+                            deVenta.Producto.Id = Convert.ToInt32(row.Cells["ProductoId"].Value);
+                            deVenta.Cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                            deVenta.Id = Convert.ToInt32(row.Cells["Id"].Value);
+
+                            if (FDetalleVenta.Eliminar(deVenta) > 0)
+                            {
+                                if (FDetalleVenta.AumentarStock(deVenta) != 1)
+                                {
+                                    MessageBox.Show("No se pudo actualizar el Stock", 
+                                        "Eliminacion de Producto",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("El producto no pudo ser quitado de la venta", "Eliminacion de Producto",
+                                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                           
+
+                        }
+
+                    }
+
+                    FrmDetalleVenta_Load(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }
